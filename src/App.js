@@ -6,7 +6,7 @@ export default class App extends React.Component {
   render(){
   return (
     <div className="App">
-      MY APP
+      <h1 className='text-center'>Death Positive +</h1>
     </div>
   );
   }

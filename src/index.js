@@ -6,10 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import deathReducer from './reducers/deathReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSER__ || compose;
-let reducer = ''
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+
+const store = createStore(deathReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
