@@ -3,17 +3,22 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { fetchDeaths } from './actions/fetchDeaths';
+import DeathsContainer from './containers/DeathsContainer';
+import DeathForm from './components/DeathForm'
 
 class App extends React.Component {
   
   componentDidMount (){
-    this.props.fetchDeaths({type: 'GET_DEATHS', 'lalla'})
+    this.props.fetchDeaths()
   }
 
   render(){
     return (
       <div className="App">
         <h1 className='text-center'>Death Positive +</h1>
+        <hr/>
+        <DeathsContainer />
+        <DeathForm />
       </div>
     );
   }
@@ -26,7 +31,7 @@ class App extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchDeaths: dispatch(fetchDeaths)
+    fetchDeaths: () => dispatch(fetchDeaths())
   }
 }
 export default connect(null, mapDispatchToProps)(App)
