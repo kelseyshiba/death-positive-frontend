@@ -11,7 +11,7 @@ class DeathForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addDeath(this.state)
+        this.props.createDeath(this.state)
         this.setState({
             person: '',
             date: ''
@@ -28,9 +28,9 @@ class DeathForm extends React.Component {
         return (
             <div className='container'>
             <form onSubmit={this.handleSubmit} className='form-group'>
-                <label for='name'>Enter Name of Person Dyin':</label>
+                <label htmlFor='name'>Enter Name of Person Dyin':</label>
                 <input onChange={this.handleOnChange} type='text' name='person' value={this.state.name} className='form-control'/><br></br>
-                <label for='date'>Enter Date (YYYY-MM-DD) or Write Enter 'SomeDay In The Future'</label>
+                <label htmlFor='date'>Enter Date (YYYY-MM-DD) or Write Enter 'SomeDay In The Future'</label>
                 <input onChange={this.handleOnChange} type='text' name='date' value={this.state.date} className='form-control'/><br></br>
                 <button type='submit' className='btn btn-success'>Submit</button>
             </form>
