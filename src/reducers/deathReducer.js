@@ -4,21 +4,17 @@ export default function deathReducer(state = { deaths: [], loading: false }, act
             return {...state, 
                 deaths: [...state.deaths],
                 loading: true}
-        case 'ADD_DEATHS':
-            return state.deaths
+        case 'FETCH_DEATHS':
+            return {...state, 
+            deaths: action.deaths.data, 
+            loading: false }
+        case 'ADD_DEATH':  
+            console.log(action)       
+            return {
+                ...state,
+                deaths: [...state.deaths, action.death]
+            }
         default: 
             return state
     } 
 }
-
-// ///  return {
-//     ...state,
-//     cats: [...state.cats],
-//     loading: true
-//   }
-// case 'ADD_CATS':
-//   return {
-//     ...state,
-//     cats: action.cats,
-//     loading: false
-//   }
