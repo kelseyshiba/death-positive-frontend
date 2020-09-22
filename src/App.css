@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+#death-card {
+  background-color: gray;
+  margin: 5px 0px;
+  padding: 10px;
+  height: 200px;
+}
+
