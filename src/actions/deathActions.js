@@ -11,8 +11,8 @@ export const createDeath = death => {
 
     fetch('http://localhost:3000/api/v1/deaths', configObj)
     .then(response => response.json())
-    .then(data => {
-      dispatch({type: 'ADD_DEATH', data })
+    .then(resp => {
+      dispatch({type: 'ADD_DEATH', death: resp.data.attributes })
     })
   }
 }

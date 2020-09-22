@@ -4,12 +4,11 @@ import Death from './Death';
 
 class Deaths extends React.Component {
     render (){
-        console.log(this.props.deaths.map(death => death))
         return (
             <div className='container'>
                 <ul>
-                {this.props.deaths.map(death =>
-                    <li key={death.id}><Death death={death}/></li>
+                {this.props.deaths && this.props.deaths.map(death =>
+                    <li key={death.id}><Death props={death}/></li>
                 )}
                 </ul>
             </div>

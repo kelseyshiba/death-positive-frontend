@@ -6,10 +6,11 @@ export default function deathReducer(state = { deaths: [], loading: false }, act
                 loading: true}
         case 'FETCH_DEATHS':
             return {...state, 
-            deaths: action.deaths.data, 
+            deaths: action.deaths, 
             loading: false }
-        case 'ADD_DEATH':  
-            console.log(action)       
+            //(24) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+        case 'ADD_DEATH': 
+            //console.log(action.death) 
             return {
                 ...state,
                 deaths: [...state.deaths, action.death]
