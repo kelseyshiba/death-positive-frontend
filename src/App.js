@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import './App.css';
 import DeathsContainer from './containers/DeathsContainer';
+import Home from './containers/Home';
 
 class App extends React.Component {
   
@@ -11,11 +12,11 @@ class App extends React.Component {
     return (
       <Router>
       <div className="App">
-        <h1 className='text-center'>Death Positive +</h1>
+        <header id='header' className='text-center'><h1>Death Positive +</h1></header>
         <hr/>
         <NavBar />
         <hr/>
-        <Route exact path="/" render={() => <div>Home</div>} />
+        <Route exact path="/" render={() => <Home/>} />
         <Route path='/deaths' render={routerProps => <DeathsContainer {...routerProps}/>} />
       </div>
       </Router>
