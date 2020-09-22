@@ -2,9 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DeathForm from '../components/DeathForm'
 import { createDeath } from '../actions/deathActions';
-import Deaths from '../components/Deaths'
+import Deaths from '../components/Deaths';
+import { fetchDeaths } from '../actions/fetchDeaths';
 
 class DeathsContainer extends React.Component {
+
+    componentDidMount(){
+        this.props.fetchDeaths()
+    }
+
     render (){
         return(
             <div>
@@ -18,10 +24,11 @@ class DeathsContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createDeath: (death) => {
-            dispatch(createDeath(death))
-        }
+        createDeath: (death) => 
+            dispatch(createDeath(death)),
+        fetchDeaths: () => dispatch(fetchDeaths())
     }
 }
+
 
 export default connect(null, mapDispatchToProps)(DeathsContainer)
