@@ -16,6 +16,12 @@ export default function deathReducer(state = { deaths: [], loading: false }, act
                 ...state,
                 deaths: [...state.deaths, action.death.data]
             }
+        case 'DELETE_DEATH':
+            //console.log('delete death action', action)
+            return {
+                ...state, 
+                deaths: [...state.deaths.filter(death => death.id !== action.id)]
+            }
         default: 
             return state
     } 

@@ -4,6 +4,7 @@ import DeathForm from '../components/DeathForm'
 import { createDeath } from '../actions/deathActions';
 import Deaths from '../components/Deaths';
 import { fetchDeaths } from '../actions/fetchDeaths';
+import { deleteDeath } from '../actions/deathActions';
 
 class DeathsContainer extends React.Component {
 
@@ -16,7 +17,7 @@ class DeathsContainer extends React.Component {
             <div>
                 <h2 className='text-center'>Who's Dying?</h2>
                 <DeathForm createDeath={this.props.createDeath}/>
-                <Deaths />
+                <Deaths deleteDeath={this.props.deleteDeath}/>
             </div>
         )
     }
@@ -26,7 +27,8 @@ const mapDispatchToProps = dispatch => {
     return {
         createDeath: (death) => 
             dispatch(createDeath(death)),
-        fetchDeaths: () => dispatch(fetchDeaths())
+        fetchDeaths: () => dispatch(fetchDeaths()),
+        deleteDeath: (id) => dispatch(deleteDeath(id))
     }
 }
 

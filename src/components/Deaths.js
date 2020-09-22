@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import Death from './Death';
 
 class Deaths extends React.Component {
+    handleDelete = (id) => {
+        this.props.deleteDeath(id)
+    }
+
     render (){
+        console.log('in Deaths Container', this.props.deaths)
         return (
-            <div className='container'>
-                <ul>
+            <div>
+                <div id='death-row' className='row'>
                 {this.props.deaths && this.props.deaths.map(death =>
-                    <li key={death.id}><Death props={death}/></li>
+                    <div id='death-card' className='col-md-6' key={death.id}><Death handleDelete={this.handleDelete} deathId={death.id} death={death.attributes}/></div>
                 )}
-                </ul>
+                </div>
             </div>
         )
     }

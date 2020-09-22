@@ -17,23 +17,23 @@ export const createDeath = death => {
   }
 }
 
+export const deleteDeath = id => {
+  return (dispatch) => {
+    const configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify(id),
+    };
+
+    fetch(`http://localhost:3000/api/v1/deaths/${id}`, configObj)
+    .then(response => response.json())
+    .then(data => {
+      dispatch({type: 'DELETE_DEATH', id})
+    })
+  }
+}
 
 
-///add other actions
-  
-// export const createToy = (toy) => {
-//   return (dispatch) => {
-//       const configObj = {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//             Accept: "application/json",
-//           },
-//           body: JSON.stringify(toy),
-//         };
-
-//         fetch("http://localhost:3000/toys", configObj)
-//           .then((res) => res.json())
-//           .then((newToy) => dispatch(addToy(newToy)));
-//   }
-// }
