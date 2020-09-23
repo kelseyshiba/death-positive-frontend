@@ -1,10 +1,17 @@
 import React from 'react';
 import Kind from './Kind';
+import Location from './Location';
+import Speaker from './Speaker';
 
 class Ceremony extends React.Component {
     state = {
         kind: '',
-        pageNum: 0
+        pageNum: 0,
+        locationName: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: ''
     }
     //needs state make the component did mount do fetch for the ceremony
     //pass down the ceremony id - to the show route for the ceremony info
@@ -44,12 +51,20 @@ class Ceremony extends React.Component {
         })
     }    
 
+    handleChange = (event) => {
+        console.log(event.target.value)
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     render (){
         return (
             <div>
                 {this.state.pageNum === 0 && <Kind selectKind={this.selectKind} changeColor={this.changeColor}
                     reverseChange={this.reverseChange}/>}
-                {this.state.pageNum === 1 && <Location />}
+                {this.state.pageNum === 1 && <Location state={this.state} handleChange={this.handleChange}/>}
+                {this.state.pageNum === 2 && <Speaker />}
                 {this.state.pageNum >= 0 &&
                 <div className='row'>
                     <div className='col-sm-6'>

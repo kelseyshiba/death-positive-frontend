@@ -1,14 +1,20 @@
 import React from 'react';
 
-const Location = () => {
+const Location = (props) => {
     return (
         <div>
-            <h3>Please enter a Location</h3>
+            <h3>Please Enter Your Resting Place</h3>
             <div className='form-group'>
-                <input className='form-control' type='text'/>
-                <input className='form-control' type='text'/>
-                <input className='form-control' type='text'/>
-                <input className='form-control' type='text'/>
+            <label htmlFor='address'>Location Name: (e.g. 'Funeral Home')</label>
+                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='location_name' value={props.state.value} placeholder={props.state.locationName}/>
+                <label htmlFor='address'>Address:</label>
+                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='address' value={props.state.value} placeholder={props.state.address}/>
+                <label htmlFor='address'>City</label>
+                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='city' value={props.state.value} placeholder={props.state.city}/>
+                <label htmlFor='address'>State</label>
+                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='state' value={props.state.value} placeholder={props.state.state}/>
+                <label htmlFor='address'>Zip</label>
+                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='zip' value={props.state.value} placeholder={props.state.zip}/>
             </div> 
         </div>
     )
