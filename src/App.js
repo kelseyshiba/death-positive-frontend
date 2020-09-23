@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import './App.css';
 import DeathsContainer from './containers/DeathsContainer';
 import Home from './containers/Home';
+import DeathForm from './components/DeathForm';
 
 class App extends React.Component {
   
@@ -16,8 +17,9 @@ class App extends React.Component {
         <hr/>
         <NavBar />
         <hr/>
-        <Route exact path="/" render={() => <Home/>} />
-        <Route path='/deaths' render={routerProps => <DeathsContainer {...routerProps}/>} />
+        <Route exact path="/" component={Home} />
+        <Route exact path='/deaths' render={routerProps => <DeathsContainer {...routerProps}/>} />
+        <Route exact path={'/deaths/new'} render={(routerProps) => <DeathForm {...routerProps}/>} />
       </div>
       </Router>
     );

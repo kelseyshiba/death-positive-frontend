@@ -1,6 +1,6 @@
 import React from 'react';
-
-//new death record
+import { createDeath } from '../actions/deathActions';
+import { connect } from 'react-redux';
 
 class DeathForm extends React.Component {
 
@@ -25,8 +25,10 @@ class DeathForm extends React.Component {
     }
 
     render (){
+        console.log('in Death Form', this.props)
         return (
             <div className='container'>
+            <h2 className='text-center'>Who's Dying?</h2>
             <form onSubmit={this.handleSubmit} className='form-group'>
                 <label htmlFor='name'>Enter Name of Person Dyin':</label>
                 <input onChange={this.handleOnChange} type='text' name='person' value={this.state.name} className='form-control'/><br></br>
@@ -39,4 +41,4 @@ class DeathForm extends React.Component {
     }
 }
 
-export default DeathForm;
+export default connect(null, { createDeath })(DeathForm);
