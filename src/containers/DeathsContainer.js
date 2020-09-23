@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Deaths from '../components/Deaths';
 import { fetchDeaths } from '../actions/fetchDeaths';
 import { deleteDeath } from '../actions/deathActions';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import DeathForm from '../components/DeathForm';
 import Death from '../components/Death';
 
@@ -18,9 +18,11 @@ class DeathsContainer extends React.Component {
      
         return(
             <div>
-                <Route exact path='/deaths/new' component={DeathForm}/>
-                <Route path='/deaths/:id' render={routerProps => <Death {...routerProps} deaths={this.props.deaths} deleteDeath={this.props.deleteDeath} />} />
-                <Route exact path='/deaths' render={routerProps => <Deaths {...routerProps} deaths={this.props.deaths} />} />
+                <Switch>
+                    <Route exact path='/deaths/new' component={DeathForm}/>
+                    <Route path='/deaths/:id' render={routerProps => <Death {...routerProps} deaths={this.props.deaths} deleteDeath={this.props.deleteDeath} />} />
+                    <Route exact path='/deaths' render={routerProps => <Deaths {... routerProps} deaths={this.props.deaths} />} />
+                </Switch>
             </div>
         )
     }
