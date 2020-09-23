@@ -1,6 +1,7 @@
 import React from 'react';
 import { createDeath } from '../actions/deathActions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class DeathForm extends React.Component {
 
@@ -16,6 +17,8 @@ class DeathForm extends React.Component {
             person: '',
             date: ''
         })
+        this.props.history.push('/deaths')
+        //ask Jenn about this
     }
 
     handleOnChange = (event) => {
@@ -25,7 +28,7 @@ class DeathForm extends React.Component {
     }
 
     render (){
-        console.log('in Death Form', this.props)
+      
         return (
             <div className='container'>
             <h2 className='text-center'>Who's Dying?</h2>
@@ -41,4 +44,5 @@ class DeathForm extends React.Component {
     }
 }
 
-export default connect(null, { createDeath })(DeathForm);
+
+export default withRouter(connect(null, { createDeath })(DeathForm));
