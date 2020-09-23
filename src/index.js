@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import deathReducer from './reducers/deathReducer';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSER__ || compose;
 
@@ -14,7 +15,9 @@ const store = createStore(deathReducer, composeEnhancers(applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
