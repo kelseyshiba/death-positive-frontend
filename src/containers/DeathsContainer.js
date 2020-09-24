@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Deaths from '../components/Deaths';
+import Deaths from '../components/deaths/Deaths';
 import { fetchDeaths } from '../actions/fetchDeaths';
 import { deleteDeath } from '../actions/deathActions';
 import { Route, Switch } from 'react-router-dom';
-import DeathForm from '../components/DeathForm';
+import DeathForm from '../components/deaths/DeathForm';
 import Death from '../components/deaths/Death';
 
 class DeathsContainer extends React.Component {
@@ -15,7 +15,7 @@ class DeathsContainer extends React.Component {
     
 
     render (){
-     
+     console.log(this.props.deaths)
         return(
             <div>
                 <Switch>
