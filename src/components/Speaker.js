@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Speaker = () => {
+const Speaker = (props) => {
     return(
-        <div>HEY GIRL</div>
+        <div className='form-group'>
+            <h4>Enter Your Main Speaker</h4>
+            <input onChange={(event) => props.handleChange(event)} type='text' name='speaker' className='form-control' placeholder={props.state.speaker} value={props.state.speaker}/>  
+        </div>
     )
 }
 
