@@ -6,7 +6,7 @@ const Location = (props) => {
             <h3>Please Enter Your Resting Place</h3>
             <div className='form-group'>
             <label htmlFor='address'>Location Name: (e.g. 'Funeral Home')</label>
-                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='location_name' value={props.state.value} placeholder={props.state.locationName}/>
+                <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='location_name' value={props.state.value} placeholder={props.state.location_name}/>
                 <label htmlFor='address'>Address:</label>
                 <input onChange={(event) => props.handleChange(event)} className='form-control' type='text' name='address' value={props.state.value} placeholder={props.state.address}/>
                 <label htmlFor='address'>City</label>
