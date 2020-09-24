@@ -44,8 +44,8 @@
   height: 200px;
 }
 
-#header {
-  background-image: url('/public/images/death-header.jpg');
+div#header {
+  background-image: url('/death-positive-frontend/public/images/death-header.jpg');
   background-position: center;
   background-repeat: none;
   background-size: cover;
