@@ -1,5 +1,5 @@
 import React from 'react';
-import { createDeath } from '../actions/deathActions';
+import { createDeath } from '../../actions/deathActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
