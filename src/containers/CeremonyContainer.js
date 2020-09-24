@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addCeremony } from '../actions/ceremonyActions';
+import { createCeremony } from '../actions/ceremonyActions';
 import Kind from '../components/ceremonies/Kind';
-import Location from '../components/Location';
+import Location from '../components/ceremonies/Location';
 import Speaker from '../components/ceremonies/Speaker';
-import Narrative from '../components/Narrative';
-import Name from '../components/Name';
+import Narrative from '../components/ceremonies/Narrative';
+import Name from '../components/ceremonies/Name';
 import CeremonyCompleted from '../components/ceremonies/CeremonyCompleted';
 
-class Ceremony extends React.Component {
+class CeremonyContainer extends React.Component {
     state = {
         kind: '',
         pageNum: 0,
@@ -19,7 +19,8 @@ class Ceremony extends React.Component {
         zip: '',
         speaker: '',
         name: '',
-        narrative: ''
+        narrative: '',
+        death_id: this.props.death.id
     }
     //needs state make the component did mount do fetch for the ceremony
     //pass down the ceremony id - to the show route for the ceremony info
@@ -59,7 +60,6 @@ class Ceremony extends React.Component {
     }    
 
     handleChange = (event) => {
-        console.log(event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -67,22 +67,23 @@ class Ceremony extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addCeremony(this.state)
+        this.props.createCeremony(this.state)
         this.setState({
             kind: '',
             pageNum: 0,
-            locationName: '',
+            location_name: '',
             address: '',
             city: '',
             state: '',
             zip: '',
             speaker: '',
             name: '',
-            narrative: ''
+            narrative: '',
         })
     }
 
     render (){
+    
         return (
             <div>
                 {this.state.pageNum === 0 && <Kind selectKind={this.selectKind} changeColor={this.changeColor}
@@ -91,7 +92,7 @@ class Ceremony extends React.Component {
                 {this.state.pageNum === 2 && <Speaker state={this.state}  handleChange={this.handleChange}/>}
                 {this.state.pageNum === 3 && <Narrative state={this.state} handleChange={this.handleChange}/>}
                 {this.state.pageNum === 4 && <Name state={this.state} handleChange={this.handleChange}/>}
-                {this.state.pageNum === 5 && <CeremonyCompleted />}
+                {this.state.pageNum === 5 && <CeremonyCompleted ceremony={this.props.death && this.props.death.attributes.ceremony}/>}
                 
                 {this.state.pageNum === 0 && 
                    <div className='row'>
@@ -120,4 +121,4 @@ class Ceremony extends React.Component {
     }
 }
 
-export default connect(null, {addCeremony})(Ceremony);
+export default connect(null, {createCeremony})(CeremonyContainer);
