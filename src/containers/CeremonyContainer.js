@@ -79,12 +79,19 @@ class CeremonyContainer extends React.Component {
             speaker: '',
             name: '',
             narrative: '',
+            death_id: ''
         })
     }
 
-    render (){
-    
-        return (
+    render () {
+        // console.log(this.props)
+        if (this.props.death.attributes.ceremony) {
+            return (
+                <div> <CeremonyCompleted ceremony={this.props.death && this.props.death.attributes.ceremony}/>
+                </div>
+            ) 
+        } else { 
+            return (
             <div>
                 {this.state.pageNum === 0 && <Kind selectKind={this.selectKind} changeColor={this.changeColor}
                     reverseChange={this.reverseChange}/>}
@@ -92,8 +99,6 @@ class CeremonyContainer extends React.Component {
                 {this.state.pageNum === 2 && <Speaker state={this.state}  handleChange={this.handleChange}/>}
                 {this.state.pageNum === 3 && <Narrative state={this.state} handleChange={this.handleChange}/>}
                 {this.state.pageNum === 4 && <Name state={this.state} handleChange={this.handleChange}/>}
-                {this.state.pageNum === 5 && <CeremonyCompleted ceremony={this.props.death && this.props.death.attributes.ceremony}/>}
-                
                 {this.state.pageNum === 0 && 
                    <div className='row'>
                        <div className='col-sm-6'>
@@ -116,8 +121,8 @@ class CeremonyContainer extends React.Component {
                 <div>
                     <button className='btn btn-success' onClick={(event) => this.handleSubmit(event)}>Submit</button>
                 </div>}
-            </div>
-        )
+            </div>)
+        }
     }
 }
 

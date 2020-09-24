@@ -4,6 +4,7 @@ const CeremonyCompleted = (props) => {
     console.log('in completed ceremony', props.ceremony)
     return (
         <div>
+            <h4>Your Ceremony Details</h4>
             <p>Name: {props.ceremony.name}</p>
             <p>Location: {props.ceremony.location_name}</p>
             <p>Address: {props.ceremony.address}</p>
