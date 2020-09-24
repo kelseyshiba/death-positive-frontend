@@ -1,10 +1,12 @@
 import React from 'react';
-import Kind from '../components/Kind';
+import { connect } from 'react-redux';
+import { addCeremony } from '../actions/ceremonyActions';
+import Kind from '../components/ceremonies/Kind';
 import Location from '../components/Location';
-import Speaker from '../components/Speaker';
+import Speaker from '../components/ceremonies/Speaker';
 import Narrative from '../components/Narrative';
 import Name from '../components/Name';
-import CeremonyCompleted from '../components/CeremonyCompleted';
+import CeremonyCompleted from '../components/ceremonies/CeremonyCompleted';
 
 class Ceremony extends React.Component {
     state = {
@@ -118,4 +120,4 @@ class Ceremony extends React.Component {
     }
 }
 
-export default Ceremony;
+export default connect(null, {addCeremony})(Ceremony);
