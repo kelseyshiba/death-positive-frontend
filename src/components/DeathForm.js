@@ -18,7 +18,7 @@ class DeathForm extends React.Component {
             date: ''
         })
         this.props.history.push('/deaths')
-        //ask Jenn about this
+      //ask Shiyun
     }
 
     handleOnChange = (event) => {

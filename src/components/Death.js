@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Ceremony from './Ceremony';
+// import { Link } from 'react-router-dom';
+import CeremonyContainer from '../containers/CeremonyContainer';
 
 const Death = (props) => {
     let death = props.deaths.find(death => death.id === props.match.params.id)
     
+    // const handleDelete = (id) => {
+    //     props.deleteDeath(id)
+    //     this.props.history('/deaths')
+    // }
     return(
         <div className='container'>
     <div className='row'>
         <div className='col'>
             <h3>Obit {death ? death.id : null}</h3><br></br>
-            <p>Person: {death ? death.attributes.person : null}</p>
-            <p>Date: {death ? death.attributes.date : null}</p>
+            <h3>Person: {death ? death.attributes.person : null}</h3>
+            <h3>Date: {death ? death.attributes.date : null}</h3>
             <hr/>
         </div>
         <div className='col-sm'>
@@ -20,8 +24,7 @@ const Death = (props) => {
     </div>
     <div className='row'>
         <div className='col'>
-        <h4 className='text-center'>Choose Your Sleeping Arrangements</h4>
-        <Ceremony />
+        <CeremonyContainer />
         </div>
     </div>
     </div>
