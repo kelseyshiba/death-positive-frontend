@@ -6,7 +6,7 @@ const Death = (props) => {
 
     const handleDelete = (id) => {
         props.deleteDeath(id)
-        this.props.history.push('/deaths')
+        props.history.push('/deaths')
     }
 
     return(

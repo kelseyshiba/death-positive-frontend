@@ -10,13 +10,11 @@ export default function deathReducer(state = { deaths: [], loading: false }, act
             loading: false }
             //(24) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
         case 'ADD_DEATH': 
-        console.log('add a death', action)
             return {
                 ...state,
                 deaths: [...state.deaths, action.death.data]
             }
         case 'DELETE_DEATH':
-
             return {
                 ...state, 
                 deaths: [...state.deaths.filter(death => death.id !== action.id)]
@@ -25,7 +23,7 @@ export default function deathReducer(state = { deaths: [], loading: false }, act
             console.log('in create ceremony action', action.death)
             let deaths = state.deaths.map(death=> {
                 if (death.id === action.death.data.id) {
-                    return action.death
+                    return action.death.data
                 } else {
                     return death
                 }

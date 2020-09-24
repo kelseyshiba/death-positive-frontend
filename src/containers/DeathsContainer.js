@@ -15,7 +15,7 @@ class DeathsContainer extends React.Component {
     
 
     render (){
-     console.log(this.props.deaths)
+     console.log('in deaths container', this.props.deaths)
         return(
             <div>
                 <Switch>

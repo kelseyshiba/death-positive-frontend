@@ -12,7 +12,7 @@ class Deaths extends React.Component {
                 {this.props.deaths && this.props.deaths.map(death =>
                     <div id='death-card' className='col-md-6' key={death.id}>
                     <h3>Rest In Peace</h3>
-                    <img src='' alt='card-bkgnd'/><br></br>
+                    <img height='125px' src={process.env.PUBLIC_URL + '/images/gravestone.jpeg'} alt='card-bkgnd'/><br></br>
                     <Link to={`/deaths/${death.id}`}>{death.attributes.person}</Link>
                     </div>
                 )}
