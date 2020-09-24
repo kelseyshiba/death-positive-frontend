@@ -5,7 +5,7 @@ import { fetchDeaths } from '../actions/fetchDeaths';
 import { deleteDeath } from '../actions/deathActions';
 import { Route, Switch } from 'react-router-dom';
 import DeathForm from '../components/DeathForm';
-import Death from '../components/Death';
+import Death from '../components/deaths/Death';
 
 class DeathsContainer extends React.Component {
     
