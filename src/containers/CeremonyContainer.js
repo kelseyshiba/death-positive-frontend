@@ -22,12 +22,8 @@ class CeremonyContainer extends React.Component {
         narrative: '',
         death_id: this.props.death.id
     }
-    //needs state make the component did mount do fetch for the ceremony
-    //pass down the ceremony id - to the show route for the ceremony info
-    //fetch if created, then make new / form
    
-    selectKind = (event) => {
-       
+    selectKind = (event) => {  
         if(event.target.parentElement.style.backgroundColor === 'lightblue') {
             event.target.parentElement.style.backgroundColor = '' 
         } else {
@@ -84,7 +80,6 @@ class CeremonyContainer extends React.Component {
     }
 
     render () {
-        // console.log(this.props)
         if (this.props.death.attributes.ceremony) {
             return (
                 <div> <CeremonyCompleted ceremony={this.props.death && this.props.death.attributes.ceremony}/>

@@ -29,18 +29,23 @@ export default function deathReducer(state = { deaths: [], loading: false }, act
                 }
             })
             return {...state, deaths: deaths}
-
-            // const deathIdx = state.deaths.findIndex(death => death.id === action.ceremony.data.attributes.death_id)
-            // let death = state.deaths[deathIdx]
-            // death.attributes.ceremony = (Object.assign({}, action.ceremony.data.attributes))
-
-            // return {...state,
-            //     friends: [
-            //       ...state.friends.slice(0, removalIndex),
-            //       ...state.friends.slice(removalIndex + 1)
-            //     ]
-            //   }
-            
+        case 'ADD_CONTACT':
+            console.log('in add contact action', action.payload.data.attributes.death_id) //ceremony
+            //death id, type, attributes
+            //death.attributes
+            let newContacts = action.payload.data.attributes.contacts
+            let deaths2 = state.deaths.map(death => {
+                if (death.id == action.payload.data.attributes.death_id){
+                    //return {...death, ceremony: {...death.attributes.ceremony, contacts: newContacts}}
+                    return {...death, attributes: {...death.attributes, ceremony: {...death.attributes.ceremony, contacts: newContacts}}}
+                } else {
+                    return death
+                }
+            })
+            return {...state, deaths: deaths2}   
+        case 'FETCH_CEREMONY':
+            console.log('fetch ceremony action', action.ceremony.data.attributes)
+            return {...state}         
         default: 
             return state
     } 

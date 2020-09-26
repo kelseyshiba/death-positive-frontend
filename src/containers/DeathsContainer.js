@@ -6,6 +6,7 @@ import { deleteDeath } from '../actions/deathActions';
 import { Route, Switch } from 'react-router-dom';
 import DeathForm from '../components/deaths/DeathForm';
 import Death from '../components/deaths/Death';
+import ContactsContainer from '../components/ceremonies/ContactsContainer';
 
 class DeathsContainer extends React.Component {
     
@@ -15,13 +16,14 @@ class DeathsContainer extends React.Component {
     
 
     render (){
-     console.log('in deaths container', this.props.deaths)
+  console.log('in death container new state', this.props.deaths)
         return(
             <div>
                 <Switch>
                     <Route exact path='/deaths/new' component={DeathForm}/>
                     <Route path='/deaths/:id' render={routerProps => <Death {...routerProps} deaths={this.props.deaths} deleteDeath={this.props.deleteDeath} />} />
                     <Route exact path='/deaths' render={routerProps => <Deaths {... routerProps} deaths={this.props.deaths} />} />
+                    <Route path='/ceremonies/:id/contacts' render={routerProps => <ContactsContainer {...routerProps} />} />
                 </Switch>
             </div>
         )
