@@ -14,9 +14,8 @@ class DeathsContainer extends React.Component {
         this.props.fetchDeaths()
     }
     
-
     render (){
-  console.log('in death container new state', this.props.deaths)
+    
         return(
             <div>
                 <Switch>
@@ -30,17 +29,10 @@ class DeathsContainer extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchDeaths: () => dispatch(fetchDeaths()),
-        deleteDeath: (id) => dispatch(deleteDeath(id))
-    }
-}
-//when reducing this do I still pass id?
-
 const mapStateToProps = state => {
     return {
         deaths: state.deaths
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DeathsContainer)
+
+export default connect(mapStateToProps, { fetchDeaths, deleteDeath })(DeathsContainer)

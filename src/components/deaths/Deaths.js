@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom';
 class Deaths extends React.Component {
 
     render (){
-   
+        console.log('deaths', this.props.deaths)
         return (
-            <div>
-                <div id='death-row' className='row'>
+            <div className='row'>
                 {this.props.deaths && this.props.deaths.map(death =>
                     <div id='death-card' className='col-md-6' key={death.id}>
                     <h3>Rest In Peace</h3>
@@ -16,7 +15,6 @@ class Deaths extends React.Component {
                     <Link to={`/deaths/${death.id}`}>{death.attributes.person}</Link>
                     </div>
                 )}
-                </div>
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import CeremonyContainer from '../../containers/CeremonyContainer';
 
 const Death = (props) => {
+    console.log('in death', props.deaths)
     let death = props.deaths.find(death => death.id === props.match.params.id)
 
     const handleDelete = (id) => {
@@ -9,7 +10,7 @@ const Death = (props) => {
         props.history.push('/deaths')
     }
 
-    return(
+    return (
         <div className='container'>
             <div className='row'>
                 <div className='col'>
