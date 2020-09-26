@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createCeremony } from '../actions/ceremonyActions';
+import { createCeremony, fetchCeremonies } from '../actions/ceremonyActions';
 import Kind from '../components/ceremonies/Kind';
 import Location from '../components/ceremonies/Location';
 import Speaker from '../components/ceremonies/Speaker';
@@ -75,14 +75,24 @@ class CeremonyContainer extends React.Component {
             speaker: '',
             name: '',
             narrative: '',
-            death_id: ''
+            death_id: '',
         })
     }
 
+    componentDidMount() {
+        this.props.fetchCeremonies()
+    }
+    
     render () {
-        if (this.props.death.attributes.ceremony) {
+        console.log(this.props.ceremonies[0])
+        console.log(this.props.death.id)
+        let deathId = this.props.death.id
+        let ceremony = this.props.ceremonies.find(ceremony => ceremony.attributes.death_id == deathId)
+        
+        if (ceremony !== undefined) {
             return (
-                <div> <CeremonyCompleted ceremony={this.props.death && this.props.death.attributes.ceremony}/>
+                <div> 
+                    <CeremonyCompleted ceremony={ceremony}/>
                 </div>
             ) 
         } else { 
@@ -120,5 +130,11 @@ class CeremonyContainer extends React.Component {
         }
     }
 }
+const mapStateToProps = state => {
+    return {
+        ceremonies: state.ceremonies
+    }
+}
 
-export default connect(null, {createCeremony})(CeremonyContainer);
+
+export default connect(mapStateToProps, { createCeremony, fetchCeremonies })(CeremonyContainer);

@@ -12,7 +12,7 @@ export const createCeremony = (ceremony) => {
         fetch(`http://localhost:3000/api/v1/ceremonies`, configObj)
         .then(response => response.json())
         .then(data => {
-          dispatch({type:'CREATE_CEREMONY', death: data})
+          dispatch({type:'CREATE_CEREMONY', payload: data})
         })
       }
 }
@@ -42,6 +42,14 @@ export const fetchCeremony = (id) => {
     .then(response => response.json())
     .then(data => dispatch({type: 'FETCH_CEREMONY', ceremony: data})
     )}
+}
+
+export const fetchCeremonies = () => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/ceremonies`)
+    .then(response => response.json())
+    .then(data => dispatch({type: 'FETCH_CEREMONIES', payload: data}))
+  }
 }
 
 
