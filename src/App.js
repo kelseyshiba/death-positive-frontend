@@ -11,7 +11,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <div id='header' className='text-center'><h1>Death Positive +</h1></div>
+        <div id='header' className='container'></div>
         <hr/>
         <NavBar />
         <hr/>

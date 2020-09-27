@@ -40,13 +40,22 @@
 #death-card {
   background-color: gray;
   margin: 5px 0px;
-  padding: 10px;
+  padding: 5px;
   height: 200px;
+  border-color: white;
+  border-right: 10px;
+}
+
+#death-row img {
+  width: 250px;
+  height: 250px;
 }
 
 div#header {
+  background-image: url(./images/deathheader.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  background-image: url('/death-header.jpg');
-  height: 25vh;
+  height: 50vh;
 } 
 
