@@ -1,35 +1,30 @@
 export default function ceremonyReducer(state = [], action) {
     switch(action.type){
         case 'CREATE_CEREMONY':
-            //console.log('in create ceremony action', action.payload.data)
             return [...state, action.payload.data]
-            // let deaths = state.deaths.map(death=> {
-            //     if (death.id === action.death.data.id) {
-            //         return action.death.data
-            //     } else {
-            //         return death
-            //     }
-            // })
-            // return {...state, deaths: deaths}
-        // case 'ADD_CONTACT':
-        //     console.log('in add contact action', action.payload.data.attributes.death_id) //ceremony
-        //     //death id, type, attributes
-        //     //death.attributes
-        //     let newContacts = action.payload.data.attributes.contacts
-        //     let deaths2 = state.deaths.map(death => {
-        //         if (death.id == action.payload.data.attributes.death_id){
-        //             //return {...death, ceremony: {...death.attributes.ceremony, contacts: newContacts}}
-        //             return {...death, attributes: {...death.attributes, ceremony: {...death.attributes.ceremony, contacts: newContacts}}}
-        //         } else {
-        //             return death
-        //         }
-        //     })
-        //     return {...state, deaths: deaths2}   
-        // case 'FETCH_CEREMONY':
-        //     console.log('fetch ceremony action', action.ceremony.data.attributes)
-        //     return {...state} 
-        case 'FETCH_CEREMONY':
-            return [...state, action.payload]
+        case 'ADD_CONTACT':
+            console.log('in add contact action', action.payload.data.id) //ceremony
+            let ceremonies = state.map(ceremony => {
+                if (ceremony.id == action.payload.data.id){
+                    return {...ceremony, contacts: action.payload.data.attributes.contacts}
+                } else {
+                    return ceremony
+                }
+            })
+            return ceremonies
+        case 'DELETE_CONTACT':
+            console.log('in delete contact action', action)
+            return [...state.filter(ceremony => ceremony.id !== action.payload.id)]
+        case 'FETCH_CONTACTS':
+            console.log('fetch contacts', action.payload.data)
+            let ceremonies2 = state.map(ceremony => {
+                if (ceremony.id == action.payload.data[0].attributes.ceremony_id){
+                    return {...ceremony, contacts: action.payload.data}
+                } else {
+                    return ceremony
+                }
+            })
+            return ceremonies2
         case 'FETCH_CEREMONIES':
             console.log('fetch ceremonies', action.payload.data)
             return state = action.payload.data

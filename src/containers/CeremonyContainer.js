@@ -84,8 +84,7 @@ class CeremonyContainer extends React.Component {
     }
     
     render () {
-        console.log(this.props.ceremonies[0])
-        console.log(this.props.death.id)
+        
         let deathId = this.props.death.id
         let ceremony = this.props.ceremonies.find(ceremony => ceremony.attributes.death_id == deathId)
         
