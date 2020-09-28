@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import DeathForm from '../components/deaths/DeathForm';
 import Death from '../components/deaths/Death';
 import ContactsContainer from '../components/ceremonies/ContactsContainer';
+import CeremonyEdit from '../components/ceremonies/CeremonyEdit';
 
 class DeathsContainer extends React.Component {
     
@@ -21,8 +22,9 @@ class DeathsContainer extends React.Component {
                 <Switch>
                     <Route exact path='/deaths/new' component={DeathForm}/>
                     <Route path='/deaths/:id' render={routerProps => <Death {...routerProps} deaths={this.props.deaths} deleteDeath={this.props.deleteDeath} />} />
-                    <Route exact path='/deaths' render={routerProps => <Deaths {... routerProps} deaths={this.props.deaths} />} />
+                    <Route exact path='/deaths' render={routerProps => <Deaths {...routerProps} deaths={this.props.deaths} />} />
                     <Route path='/ceremonies/:id/contacts' render={routerProps => <ContactsContainer {...routerProps} />} />
+                    <Route path='/ceremonies/:id/edit' render={routerProps => <CeremonyEdit {...routerProps} ceremonies={this.props.ceremonies} />} />
                 </Switch>
             </div>
         )
@@ -31,7 +33,8 @@ class DeathsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        deaths: state.deaths
+        deaths: state.deaths,
+        ceremonies: state.ceremonies
     }
 }
 

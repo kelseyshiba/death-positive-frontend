@@ -22,7 +22,9 @@ const CeremonyCompleted = (props) => {
                     <p>Cost: {props.ceremony.attributes.cost}</p>
                 </div>
                 <div className='col-md-6'>
-                    <button className='btn btn-warning'>Edit Ceremony</button><br></br><br></br>
+                    <Link to={`/ceremonies/${props.ceremony.id}/edit`}>
+                        <button className='btn btn-warning'>Edit Ceremony</button><br></br><br></br>
+                    </Link>
                     <Link to={`/ceremonies/${props.ceremony.id}/contacts`}>
                         <button className='btn btn-primary'>Contacts</button>
                     </Link>

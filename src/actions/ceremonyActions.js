@@ -70,5 +70,24 @@ export const fetchContacts = (id) => {
   }
 }
 
+export const editCeremony = (ceremony, id) => {
+    return(dispatch) => {
+      const configObj ={
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(ceremony)
+      };
+  
+      fetch(`http://localhost:3000/api/v1/ceremonies/${id}`, configObj)
+      .then(response => response.json())
+      .then(data => {
+        dispatch({type:'EDIT_CEREMONY', payload: data})
+      })
+    }
+}
+
 
     

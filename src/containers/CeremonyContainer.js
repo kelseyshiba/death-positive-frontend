@@ -8,6 +8,7 @@ import Narrative from '../components/ceremonies/Narrative';
 import Name from '../components/ceremonies/Name';
 import CeremonyCompleted from '../components/ceremonies/CeremonyCompleted';
 
+
 class CeremonyContainer extends React.Component {
     state = {
         kind: '',
@@ -20,7 +21,7 @@ class CeremonyContainer extends React.Component {
         speaker: '',
         name: '',
         narrative: '',
-        death_id: this.props.death.id
+        death_id: this.props.death.id,
     }
    
     selectKind = (event) => {  
@@ -91,7 +92,7 @@ class CeremonyContainer extends React.Component {
         if (ceremony !== undefined) {
             return (
                 <div> 
-                    <CeremonyCompleted ceremony={ceremony}/>
+                    <CeremonyCompleted handleEdit={this.handleEdit} ceremony={ceremony}/>
                 </div>
             ) 
         } else { 
