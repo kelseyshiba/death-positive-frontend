@@ -12,3 +12,8 @@ code {
     monospace;
 }
 
+#footer {
+  position: fixed;
+  margin-left: 250px;
+  margin-right: 250px
+}

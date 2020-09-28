@@ -52,10 +52,16 @@
 }
 
 div#header {
-  background-image: url(./images/deathheader.png);
+  background-image: url(./images/deathheader2.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 50vh;
+  width: 100%;
 } 
+
+#home img {
+  height: 250px;
+  width: auto;
+}
 
