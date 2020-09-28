@@ -7,13 +7,16 @@ class Deaths extends React.Component {
     render (){
         console.log('deaths', this.props.deaths)
         return (
-            <div className='row'>
+            <div class="card-deck">
                 {this.props.deaths && this.props.deaths.map(death =>
-                    <div id='death-card' className='col-md-6' key={death.id}>
-                    <h3>Rest In Peace</h3>
-                    <img height='125px' src={process.env.PUBLIC_URL + '/images/gravestone.png'} alt='card-bkgnd'/><br></br>
-                    <Link to={`/deaths/${death.id}`}>{death.attributes.person}</Link>
-                    </div>
+                <div class="card" key={death.id}>
+                <img height='250px' src={process.env.PUBLIC_URL + '/images/gravestone.png'} alt='card-bkgnd'/><br></br>
+                <div class="card-body">
+                  <h5 class="card-title">Rest in Peace</h5>
+                  <button class="btn btn-secondary"><Link to={`/deaths/${death.id}`}>{death.attributes.person}</Link></button>
+                <p class="card-text"><small class="text-muted">{death.attributes.date}</small></p>
+                </div>
+                </div>
                 )}
             </div>
         )
@@ -23,3 +26,6 @@ class Deaths extends React.Component {
 
 
 export default Deaths;
+
+
+  
