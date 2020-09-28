@@ -14,9 +14,9 @@ const Death = (props) => {
         <div className='container'>
             <div className='row'>
                 <div className='col'>
-                    <h3>Obit {death ? death.id : null}</h3><br></br>
-                    <h3>Person: {death ? death.attributes.person : null}</h3>
-                    <h3>Date: {death ? death.attributes.date : null}</h3>
+                    <h3>Obituary Number {death ? death.id : null}</h3><br></br>
+                    <h4>Person: {death ? death.attributes.person : null}</h4>
+                    <h4>Date: {death ? death.attributes.date : null}</h4>
                     <hr/>
                 </div>
                 <div className='col-sm'>
