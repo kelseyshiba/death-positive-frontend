@@ -6,7 +6,7 @@ import { deleteDeath } from '../actions/deathActions';
 import { Route, Switch } from 'react-router-dom';
 import DeathForm from '../components/deaths/DeathForm';
 import Death from '../components/deaths/Death';
-import ContactsContainer from '../components/ceremonies/ContactsContainer';
+import ContactsContainer from './ContactsContainer';
 import CeremonyEdit from '../components/ceremonies/CeremonyEdit';
 
 class DeathsContainer extends React.Component {
