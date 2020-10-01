@@ -1,8 +1,7 @@
 import React from 'react';
-import Contacts from './Contacts';
+import Contacts from '../components/ceremonies/Contacts';
 import { connect } from 'react-redux';
-import { addContact, deleteContact, fetchCeremonies } from '../../actions/ceremonyActions.js';
-
+import { addContact, deleteContact, fetchContacts } from '../actions/contactActions';
 
 class ContactsContainer extends React.Component {
 
@@ -37,20 +36,12 @@ class ContactsContainer extends React.Component {
         this.props.deleteContact(ceremonyId, contactId)
     }
     
-    // componentDidMount() {
-    //     this.props.fetchContacts(this.props.match.params.id)
-    // }
-
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.ceremonies !== prevProps.ceremonies) {
-    //       this.props.fetchCeremonies();
-    //     }
-    // }
+    componentDidMount() {
+        this.props.fetchContacts(this.props.match.params.id)
+    }
 
     render () {
-        let ceremonyId = this.props.match.params.id
-        let ceremony = this.props.ceremonies.find(ceremony => ceremony.id == ceremonyId)
-        
+        //filtering contacts based on the ceremonyy_id - passed down 
         return (
             <div className='container'>
             <div className='row'>
@@ -72,7 +63,7 @@ class ContactsContainer extends React.Component {
                 </div>
                 <div className='col-md-6'>
                     <h4>Contacts List</h4>
-                    <Contacts handleDelete={this.handleDelete} ceremony={ceremony}/>
+                    <Contacts handleDelete={this.handleDelete} contacts={this.props.contacts}/>
                 </div>
             </div>
             </div>
@@ -82,9 +73,9 @@ class ContactsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        ceremonies: state.ceremonies
+        contacts: state.contacts
     }
 }
 
-export default connect(mapStateToProps, { addContact, deleteContact, fetchCeremonies})(ContactsContainer);
+export default connect(mapStateToProps, { addContact, deleteContact, fetchContacts })(ContactsContainer);
 

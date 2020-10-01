@@ -12,7 +12,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSER__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
-console.log(store.getState())
+console.log('whole store', store.getState())
 
 ReactDOM.render(
   <Provider store={store}>
