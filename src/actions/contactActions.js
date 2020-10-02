@@ -43,3 +43,22 @@ export const deleteContact = (ceremonyId, contactId) => {
     })
   }
 }
+
+export const updateContact = (contact) => {
+  return(dispatch) => {
+    const configObj ={
+      method: 'PATCH',
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+      body: JSON.stringify(contact)
+    };
+
+    fetch(`http://localhost:3000/api/v1/ceremonies/${contact.ceremony_id}/contacts/${contact.id}`, configObj)
+    .then(response => response.json())
+    .then(data => {
+      dispatch({type:'UPDATE_CONTACT', payload: data})
+    })
+  }
+}
