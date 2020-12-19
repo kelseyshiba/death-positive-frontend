@@ -34,7 +34,14 @@ class DeathForm extends React.Component {
             <h2 className='text-center'>Who's Dying?</h2>
             <form onSubmit={this.handleSubmit} className='form-group'>
                 <label htmlFor='name'>Enter Name of Person Dyin':</label>
-                <input onChange={this.handleOnChange} type='text' name='person' value={this.state.name} className='form-control'/><br></br>
+                <input 
+                    onChange={this.handleOnChange} 
+                    type='text' 
+                    name='person' 
+                    value={this.state.name}
+                    placeholder='Enter name' 
+                    className='form-control'/>
+                <br></br>
                 <label htmlFor='date'>Enter Date (YYYY-MM-DD) or Write Enter 'SomeDay In The Future'</label>
                 <input onChange={this.handleOnChange} type='text' name='date' value={this.state.date} className='form-control'/><br></br>
                 <button type='submit' className='btn btn-success'>Submit</button>
