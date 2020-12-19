@@ -9,7 +9,7 @@ const Death = (props) => {
         props.deleteDeath(id)
         props.history.push('/deaths')
     }
-
+    console.log(2)
     return (
         <div className='container'>
             <div className='row'>

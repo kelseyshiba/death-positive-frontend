@@ -63,8 +63,11 @@ class CeremonyContainer extends React.Component {
     }
 
     handleSubmit = (event) => {
+        console.log(3)
         event.preventDefault()
         this.props.createCeremony(this.state)
+
+        console.log(4)
         this.setState({
             kind: '',
             pageNum: 0,
@@ -78,6 +81,8 @@ class CeremonyContainer extends React.Component {
             narrative: '',
             death_id: '',
         })
+
+        console.log(5)
     }
 
     componentDidMount() {
@@ -85,7 +90,7 @@ class CeremonyContainer extends React.Component {
     }
     
     render () {
-        
+        console.log(6)
         let deathId = this.props.death.id
         let ceremony = this.props.ceremonies.find(ceremony => ceremony.attributes.death_id == deathId)
         

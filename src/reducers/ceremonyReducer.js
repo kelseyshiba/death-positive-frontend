@@ -1,4 +1,5 @@
 export default function ceremonyReducer(state = [], action) {
+    console.log(11)
     switch(action.type){
         case 'CREATE_CEREMONY':
             return [...state, action.payload.data]

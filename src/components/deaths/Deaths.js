@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
 class Deaths extends React.Component {
-
+ 
     render (){
-        console.log('deaths', this.props.deaths)
+        console.log(this.props.deaths)
         return (
             <div className="card-deck">
                 {this.props.deaths && this.props.deaths.map(death =>

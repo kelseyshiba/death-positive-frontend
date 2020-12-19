@@ -1,4 +1,5 @@
 export const createCeremony = (ceremony) => {
+  console.log(7)
     return (dispatch) => {
         const configObj ={
             method: 'POST',
@@ -13,8 +14,11 @@ export const createCeremony = (ceremony) => {
         .then(response => response.json())
         .then(data => {
           dispatch({type:'CREATE_CEREMONY', payload: data})
+          console.log(8)
         })
+        console.log(9)
       }
+    console.log(10)
 }
 
 export const fetchCeremonies = () => {
